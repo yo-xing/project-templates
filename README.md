@@ -6,7 +6,7 @@ pip install -r requirments.txt
 
 python run.py data eda
 
-i*the dataset is installed directly by a function in the spotlight.datasets.movielens module of the spotlight package
+The dataset is installed directly by a function in the spotlight.datasets.movielens module of the spotlight package
 
 The run.py file imports numpy, spotlight and sub-modules datasets and cross_validation, it then installs the dataset 
 into the machine through the function get_movielens_dataset. It then uses the random_train_test_split function to 
