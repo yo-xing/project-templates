@@ -1,28 +1,27 @@
-
+import sys
 import numpy as np
 
 import spotlight
 from spotlight.datasets.movielens import get_movielens_dataset
-import sys
 from spotlight.datasets.synthetic import generate_sequential
-
-
-print(sys.argv)
-
-    
-dataset = get_movielens_dataset(variant='100K')
-
-
-if 'test' in sys.argv:
-    dataset = generate_sequential()
-    df2 = pd.DataFrame(dataset.tocoo().toarray())
-    df2.to_csv('testdata_output.csv')
-    
-print('dataset: ', dataset)
-
 from spotlight.cross_validation import random_train_test_split
 
-train, test = random_train_test_split(dataset, random_state=np.random.RandomState(42))
+sys.path.insert(0, 'src')
+from data import generate_data, save_data
+from main_model import build_model
+from mean_baseline import build_mean_baseline_model
 
-print('Split into \n {} and \n {}.'.format(train, test))
+def main(targets):
+    data_config = json.load(open('config/data-params.json'))
+    main_model_config = json.load(open('config/main-model-params.json'))
+    
+    if 'test' in targets:
+        dataset = generate_data(**data_config)
+        save_data(dataset, **data_config)
+        
+        main_rsme = build_model(dataset, **main_model_config)
+        mean_baseline_rsme = build_mean_baseline_model(dataset)
 
+
+if __name__ == "__main__":
+    main()
