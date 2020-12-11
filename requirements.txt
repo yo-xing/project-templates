@@ -2,4 +2,4 @@ numpy
 pandas
 git+https://github.com/maciejkula/spotlight.git#egg=spotlight
 sklearn
-math
+suprise
