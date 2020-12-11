@@ -1,4 +1,4 @@
 {
     "dockerhub-id": "<user>/<image>:<tag>",
-    "repository-id": "https://github.com/<user>/<repo>.git"
+    "repository-id": "https://github.com/yo-xing/project-templates.git"
 }
