@@ -1,4 +1,4 @@
 {
-    "dockerhub-id": "<user>/<image>:<tag>",
+    "dockerhub-id": "scs008/dsc180a-final-code:latest",
     "repository-id": "https://github.com/yo-xing/project-templates.git"
 }
